@@ -17,6 +17,12 @@
     <ClCompile Include="ShaderLoader.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="Vector.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Color.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -25,5 +31,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ShaderLoader.h" />
+    <ClInclude Include="Vector.h" />
+    <ClInclude Include="Color.h" />
   </ItemGroup>
 </Project>

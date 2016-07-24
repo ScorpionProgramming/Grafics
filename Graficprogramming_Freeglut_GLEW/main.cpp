@@ -21,8 +21,13 @@ float posX = 0;
 
 int frames = 0;
 float base_time = 0;
-int fps = 0;
+float fps;
 float time = 0;
+
+int oldTime = 0;
+
+float deltaTime = 0;
+
 
 //kann auch ein ganz normaler float sein (fuer später vielleicht von vorteil)
 static const GLfloat vertices[] =
@@ -94,6 +99,8 @@ static const GLfloat textures[] = {
 int vertexCount = sizeof(vertices) / sizeof(float) / 3;
 int colorCount = sizeof(colors) / sizeof(float) / 3;
 
+float speed = 10;
+
 void keyboard(unsigned char key, int x, int y) {
 	switch (key) 
 	{
@@ -101,16 +108,16 @@ void keyboard(unsigned char key, int x, int y) {
 		exit(0);
 		break;
 	case 'w':
-		posZ += 0.5f;
+		posZ += speed*deltaTime;
 		break;
 	case 'a':
-		posX += 0.5f;
+		posX += speed*deltaTime;
 		break;
 	case 's':
-		posZ -= 0.5f;
+		posZ -= speed*deltaTime;
 		break;
 	case 'd':
-		posX -= 0.5f;
+		posX -= speed*deltaTime;
 		break;
 	case ' ':
 		drawMode = ++drawMode % 2;
@@ -157,8 +164,16 @@ void drawString(const char* str, int x, int y, float color[4], void *font) {
 	glPopAttrib();
 }
 
+
+//funktion die beim pro frame einmal ausgeführt wird.
 void display() {
-	time = glutGet(GLUT_ELAPSED_TIME);
+	int start = glutGet(GLUT_ELAPSED_TIME);
+	deltaTime = (float)start - oldTime;
+	oldTime = start;
+	deltaTime = deltaTime / 1000;
+
+	//gibt die zeit aus, die seit dem start vergangen ist!
+	//time = glutGet(GLUT_ELAPSED_TIME);
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -203,7 +218,7 @@ void display() {
 	gluOrtho2D(0, SCREEN_WIDTH, 0, SCREEN_HEIGHT);  // set to orthogonal projection
 
 	stringstream ss;
-	ss << "time:" << time << " frames: " << frames << " fps: " << fps;
+	ss << "Delta Time:" << deltaTime << " frames: " << round(1/deltaTime) << " fps: " << fps;
 
 	float color[4] = { 1,1,1,1 }; 
 	float color2[4] = { 1,1,0,1 };
@@ -219,12 +234,6 @@ void display() {
 	//#######################################################################
 
 	glutSwapBuffers(); //erstellt das 'doublebffering'
-	if (time >= 1000) {
-		fps = frames;
-		frames = 0; 
-		time = 0;
-	}
-	++frames;
 }
 
 void reshape(int width, int height) {
