@@ -6,6 +6,7 @@
 #include <GL/glew.h>
 #include <GL/freeglut.h>
 
+
 using namespace std;
 int drawMode = 0;
 GLuint VBOID; //unsiged int in openGL kann auch normales 'unsigned int' sein
@@ -278,7 +279,6 @@ void initGL() {
 	cout << "ColorCount: " << colorCount << endl;
 	cout << "QuadSize = " << sizeof(vertices) + sizeof(colors) << " Bytes" << endl;
 
-
 	//kopier daten an die g-karte
 	glGenBuffers(1, &VBOID);
 	glBindBuffer(GL_ARRAY_BUFFER, VBOID); //bind buffer
@@ -300,11 +300,11 @@ int main(int argc, char** argv) {
 	//registered callback functions
 	glutDisplayFunc(display); //eine funktion wird übergeben die jeden frame ausgeführt werden soll
 	glutIdleFunc(display);
+
 	//keyboard & mouse input handle
 	glutKeyboardFunc(keyboard);
 	glutMouseFunc(mouse);
-	//ObjLoader obj;
-	//obj.loadObject("objects/meinWuerfelA.obj");
+
 	glutMainLoop();
 
 	return 0;

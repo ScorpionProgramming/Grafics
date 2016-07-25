@@ -42,11 +42,11 @@ Color Color::operator+(const Color & c) const
 	clr.B = this->B + c.B;
 	return clr;
 }
-/*
-Color &Color::operator+=(const Color & c) const
+Color & Color::operator+=(const Color & c)
 {
+	// TODO: hier Rückgabeanweisung eingeben
 	this->R += c.R;
 	this->G += c.G;
 	this->B += c.B;
-	return this;
-}*/
+	return *this;
+}

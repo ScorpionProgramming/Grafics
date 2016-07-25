@@ -17,10 +17,10 @@
     <ClCompile Include="ShaderLoader.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="Vector.cpp">
+    <ClCompile Include="Color.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="Color.cpp">
+    <ClCompile Include="Vector.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -31,7 +31,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ShaderLoader.h" />
-    <ClInclude Include="Vector.h" />
     <ClInclude Include="Color.h" />
+    <ClInclude Include="Vector.h" />
   </ItemGroup>
 </Project>

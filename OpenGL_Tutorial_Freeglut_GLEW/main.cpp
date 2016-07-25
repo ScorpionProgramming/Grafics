@@ -54,11 +54,11 @@ int main(int argc, char **argv)
 	
 	Init();
 
-
 	//register callbacks
 	glutDisplayFunc(display);
 	glutMainLoop();
-	glDeleteProgram(program);
 
+	//delete 'programm' before closing
+	glDeleteProgram(program);
 	return 0;
 }
