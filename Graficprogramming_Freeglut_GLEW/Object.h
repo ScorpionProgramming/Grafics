@@ -5,6 +5,17 @@
 class Object
 {
 private:
+	typedef struct Vec3 {
+		float X;
+		float Y;
+		float Z;
+	}vec3;
+
+	typedef struct Vec2 {
+		float X;
+		float Y;
+	}vec2;
+
 	std::vector <vec3> vertices;
 	std::vector <vec2> uvs;
 	std::vector <vec3> normals;

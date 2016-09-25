@@ -16,17 +16,17 @@ std::string Object::getName()
 	return name;
 }
 
-std::vector<vec3> Object::getVertices()
+std::vector<Object::vec3> Object::getVertices()
 {
 	return vertices;
 }
 
-std::vector<vec2> Object::getUV()
+std::vector<Object::vec2> Object::getUV()
 {
 	return uvs;
 }
 
-std::vector<vec3> Object::getNormals()
+std::vector<Object::vec3> Object::getNormals()
 {
 	return normals;
 }

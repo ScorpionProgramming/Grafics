@@ -14,11 +14,17 @@
     <ClCompile Include="main.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="var3.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
     <ClCompile Include="Obj.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="var3.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
     <ClInclude Include="Obj.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>

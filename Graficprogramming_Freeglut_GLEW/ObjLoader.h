@@ -3,19 +3,24 @@
 #define _CRT_SECURE_NO_WARNINGS
 #endif
 
+#include <iostream>
+
 #include "Object.h"
+
+#include "Vector.h"
+
 
 class ObjLoader
 {
 public:
 	std::string name;
-	std::vector <vec3> vertices;
-	std::vector <vec2> uvs;
-	std::vector <vec3> normals;
+	std::vector <Vector> vertices;
+	std::vector <Vector> uvs;
+	std::vector <Vector> normals;
 
-	std::vector <vec3> V_indeces;
-	std::vector <vec3> UV_indices;
-	std::vector <vec3> N_indices;
+	std::vector <Vector> V_indeces;
+	std::vector <Vector> UV_indices;
+	std::vector <Vector> N_indices;
 
 	std::vector<Object> objects;
 

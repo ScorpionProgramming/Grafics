@@ -112,9 +112,11 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Obj.cpp" />
+    <ClCompile Include="var3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Obj.h" />
+    <ClInclude Include="var3.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

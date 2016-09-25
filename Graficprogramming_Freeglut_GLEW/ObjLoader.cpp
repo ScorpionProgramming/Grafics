@@ -1,9 +1,4 @@
 #include "ObjLoader.h"
-
-#include "vec3.h"
-#include "vec2.h"
-#include <iostream>
-
 ObjLoader::ObjLoader()
 {
 }
@@ -30,34 +25,34 @@ bool ObjLoader::loadObject(char* path)
 			else
 				//wenn erster string ein 'V' ist dann:
 				if (strcmp(letter, "v") == 0) {
-					vec3 vertex;
-					fscanf(file, "%f %f %f/n", &vertex.X, &vertex.Y, &vertex.Z);
+					Vector vertex;
+					fscanf(file, "%f %f %f/n", &vertex.x, &vertex.y, &vertex.z);
 					this->vertices.push_back(vertex);
 				}
 			//wenn erster string ein 'VT' ist dann:
 				else if (strcmp(letter, "vt") == 0) {
-					vec2 uv;
-					fscanf(file, "%f %f %f/n", &uv.X, &uv.Y);
+					Vector uv;
+					fscanf(file, "%f %f %f/n", &uv.x, &uv.y);
 					this->uvs.push_back(uv);
 				}
 				//wenn erster string ein 'VN' ist dann:
 				else if (strcmp(letter, "vn") == 0) {
-					vec3 normal;
-					fscanf(file, "%f %f %f/n", &normal.X, &normal.Y, &normal.Z);
+					Vector normal;
+					fscanf(file, "%f %f %f/n", &normal.x, &normal.y, &normal.z);
 					this->normals.push_back(normal);
 				}
 				else if (strcmp(letter, "f") == 0) {
 					int match;
-					vec3 vIndex;
-					vec3 uvIndex;
-					vec3 nIndex;
-					match = fscanf(file, "%f %f %f\n", vIndex.X, vIndex.Y, vIndex.Z);
+					Vector vIndex;
+					Vector uvIndex;
+					Vector nIndex;
+					match = fscanf(file, "%f %f %f\n", vIndex.x, vIndex.y, vIndex.z);
 					if (match != 3) {
-						match = fscanf(file, "%f/%f %f/%f %f/%f\n", vIndex.X, nIndex.X, vIndex.Y, nIndex.Y, vIndex.Z, nIndex.Z);
+						match = fscanf(file, "%f/%f %f/%f %f/%f\n", vIndex.x, nIndex.x, vIndex.y, nIndex.y, vIndex.z, nIndex.z);
 						if (match != 6) {
-							match = fscanf(file, "%f//%f %f//%f %f//%f\n", vIndex.X, nIndex.X, vIndex.Y, nIndex.Y, vIndex.Z, nIndex.Z);
+							match = fscanf(file, "%f//%f %f//%f %f//%f\n", vIndex.x, nIndex.x, vIndex.y, nIndex.y, vIndex.z, nIndex.z);
 							if (match != 6) {
-								match = fscanf(file, "%f//%f %f//%f %f//%f\n", vIndex.X, nIndex.X, vIndex.Y, nIndex.Y, vIndex.Z, nIndex.Z);
+								match = fscanf(file, "%f//%f %f//%f %f//%f\n", vIndex.x, nIndex.x, vIndex.y, nIndex.y, vIndex.z, nIndex.z);
 								if (match != 9) {
 									printf("File can't be read by our simple parser : ( Try exporting with other options\n");
 									return false;
@@ -81,11 +76,11 @@ int ObjLoader::loadAllObjects(char* path)
 
 void ObjLoader::printObj()
 {
-	std::vector <vec3> vertices = this->objects[0].getVertices();
+	/*std::vector <Vector> vertices = this->objects[0].getVertices();
 	for (int i = 0; i < vertices.size(); i++) {
-		vec3 vertex = vertices[i];
-		std::cout << vertex.X << " " << vertex.Y << " " << vertex.Z << std::endl;
-	}
+		Vector vertex = vertices[i];
+		std::cout << vertex.x << " " << vertex.y << " " << vertex.z << std::endl;
+	}*/
 }
 
 

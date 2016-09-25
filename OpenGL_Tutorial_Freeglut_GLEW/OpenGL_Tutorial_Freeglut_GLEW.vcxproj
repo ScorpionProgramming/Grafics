@@ -112,6 +112,7 @@
   <ItemGroup>
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="RGBImage.cpp" />
     <ClCompile Include="ShaderLoader.cpp" />
     <ClCompile Include="Vector.cpp" />
   </ItemGroup>
@@ -122,6 +123,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Color.h" />
+    <ClInclude Include="RGBImage.h" />
     <ClInclude Include="ShaderLoader.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>
